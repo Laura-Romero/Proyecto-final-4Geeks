@@ -1,3 +1,13 @@
-body {
-    background-color: blue;
+.navbar-background-color {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0;
+}
+
+.button-navbar {
+    color:white;
+    padding: 1rem;
+}
+
+.button-navbar:hover {
+    background-color: rgba(0, 0, 0, 0.7);
 }

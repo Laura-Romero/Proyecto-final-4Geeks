@@ -2,15 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
+import "../../styles/navbar.scss";
+
 export const Navbar = props => {
 	return (
-		<nav className="navbar navbar-light d-flex justify-content-between p-0">
-			<a className="navbar-brand mx-2" href="#">
-				El espejo inteligente jeje
-			</a>
-			<a className="navbar-brand mx-2" href="#">
-				{props.navbarButton}
-			</a>
+		<nav className="category-navbar navbar navbar-expand navbar-background-color">
+			<div className="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+				<ul className="navbar-nav ">
+					<li className="nav-item button-navbar">
+						<a className="m-0">{props.navbarButton}</a>
+					</li>
+				</ul>
+			</div>
 		</nav>
 	);
 };
