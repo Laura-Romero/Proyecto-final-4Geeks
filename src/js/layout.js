@@ -20,7 +20,7 @@ const Layout = () => {
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
+					<Navbar navbarButton="About the mirror" />
 					<Switch>
 						<Route exact path="/">
 							<Home />
