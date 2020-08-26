@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import "../../styles/aboutSection.scss";
 
-export const InfoAboutSection = props => {
+export const AboutSection = props => {
 	return (
 		<div className="info-section d-flex flex-wrap align-items-start col-12 col-lg-8 offset-lg-2 ">
 			<img
