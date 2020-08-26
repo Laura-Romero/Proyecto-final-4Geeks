@@ -6,10 +6,10 @@ import "../../styles/navbar.scss";
 
 export const Navbar = props => {
 	return (
-		<nav className="category-navbar navbar navbar-expand navbar-background-color">
+		<nav className="category-navbar navbar navbar-expand navbar--background-color">
 			<div className="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
 				<ul className="navbar-nav ">
-					<li className="nav-item button-navbar">
+					<li className="nav-item navbar__button">
 						<a className="m-0">{props.navbarButton}</a>
 					</li>
 				</ul>
