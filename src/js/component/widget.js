@@ -8,15 +8,19 @@ import "../../styles/userInterface.scss";
 export const Widget = props => {
 	return (
 		<Fragment>
-			<div className="float-effect widget-properties col-10 offset-1 col-lg-10 offset-lg-1 p-2">
-				<div className="widget-item d-flex">
-					<div className="widget-dot" />
-					<i className="widget-icon fa fa-twitter pt-1 col-1 col-lg-2" aria-hidden="true" />
-					<p className="col-10 col-lg-5 widget-text">Twitter</p>
+			<div className="float-effect widget-properties col-10 offset-1 col-md-10 offset-md-2 d-flex pop">
+				<div className="widget--logo col-2 offset-1 mr-1 d-flex justify-content-center">
+					<i className={props.widgetClassName} aria-hidden="true" />
+				</div>
+				<div className="widget-item col-9 p-0 d-flex">
+					<p className="m-0 widget-text">{props.widgetName}</p>
 				</div>
 			</div>
 		</Fragment>
 	);
 };
 
-Widget.propTypes = {};
+Widget.propTypes = {
+	widgetName: PropTypes.string,
+	widgetClassName: PropTypes.string
+};

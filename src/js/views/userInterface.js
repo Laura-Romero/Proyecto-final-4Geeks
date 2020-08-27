@@ -5,12 +5,15 @@ import { Context } from "../store/appContext";
 import "../../styles/userInterface.scss";
 import { WidgetTable } from "../component/widgetTable";
 import { MirrorLayoutExample } from "../component/mirrorLayoutExample";
+import { Navbar } from "../component/navbar";
 
 export const UserInterface = () => {
 	return (
-		<div className="user-interface">
-			<WidgetTable />
-			<MirrorLayoutExample />
-		</div>
+		<Fragment>
+			<div className="user-interface">
+				<WidgetTable />
+				<MirrorLayoutExample />
+			</div>
+		</Fragment>
 	);
 };

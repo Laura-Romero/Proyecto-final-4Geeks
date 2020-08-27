@@ -1,9 +1,5 @@
 body {
-
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color:lightblue;
+    background-color:transparent;
     font-family: 'Roboto', sans-serif;
 }
 .user-interface{
@@ -12,9 +8,9 @@ body {
     align-items: flex-start;
 }
 .widget-table{
-    background-color:  rgba(255, 255, 255, 0.651);
-    margin: 1rem 1.5rem 1.5rem 1rem;
-    padding: 0.2rem;
+    background: transparent;
+    margin: 1rem 1.5rem 1.5rem 2rem;
+    padding: 0.35rem;
 
 }
 .widget-title{
@@ -26,21 +22,21 @@ body {
     color: rgb(121, 121, 121)
 }
 
-.widget-dot {
-    width: 0.7rem;
-    height: 0.7rem;
-    border-radius: 100%;
-    background-color: rgba(18, 206, 134, 0.863);
-    margin: 1rem 0 0 0.3rem;
-}
 .float-effect {
     border-radius: 20px;
-    box-shadow:  6px 6px 20px #66b1ca, 
-                -6px -6px 20px #e7f5fd;  
+    box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);
+
 }
+.floating-table-effect {
+    border-radius: 20px;
+    box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);
+}  
+
+
 .widget-properties{
-    background-color:  rgba(255, 255, 255, 0.342);
+    background-color:  transparent;
     margin: 2rem;
+    padding: 0.6rem;
 }
 
 .widget-properties:hover{
@@ -56,16 +52,21 @@ body {
     font-size: 2.5rem;
     margin: 0 10px 0 0;
 }
-
-
-@media only screen and (max-width: 991px) {
-  body {
-    background-color: lightblue;
-  }
-  .widget-icon {
-    font-size: 2.5rem;
-    margin: 0 30px 0 0;
+.pop:hover{
+  animation: pop 1s linear 1;
 }
+
+@keyframes pop{
+  50%  {transform: scale(1.2);}
+}
+
+
+@media only screen and (max-width: 768px) {
+  
+    .widget-text {
+        font-size: 1rem;
+        padding: 0.5rem 0 0 0.5rem;
+    }
     .widget-table{
         margin: auto;
         margin-top: 0.5rem;
