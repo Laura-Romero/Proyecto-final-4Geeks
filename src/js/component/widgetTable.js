@@ -10,7 +10,7 @@ import { Widget } from "./widget";
 export const WidgetTable = props => {
 	return (
 		<Fragment>
-			<div className="widget-table floating-table-effect col-10 offset-1 col-lg-4 offset-lg-0">
+			<div className="widget-table floating-table-effect col-10 offset-1 col-md-4 offset-md-0">
 				<WidgetTitle />
 				<Widget widgetClassName="widget-icon fa fa-twitter" widgetName="Twitter" />
 				<Widget widgetClassName="widget-icon fa fa-google" widgetName="Gmail" />

@@ -7,7 +7,7 @@ import "../../styles/mirrorLayoutExample.scss";
 export const MirrorLayoutExample = () => {
 	return (
 		<Fragment>
-			<div className="mirror-layout-box float-effect col-10 offset-1 col-lg-7 offset-lg-0 p-0">
+			<div className="mirror-layout-box float-effect col-10 offset-1 col-md-7 offset-md-0 p-0">
 				<div className="top-position-boxes d-flex justify-content-between">
 					<div className="col-4 horizontal-position-box ">position 1</div>
 					<div className="col-4 horizontal-position-box ">position 2</div>

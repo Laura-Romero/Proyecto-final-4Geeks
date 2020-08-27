@@ -9,7 +9,9 @@ body {
 }
 .widget-table{
     background: transparent;
-    margin: 1rem 1.5rem 1.5rem 2rem;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     padding: 0.35rem;
 
 }
@@ -37,6 +39,10 @@ body {
     background-color:  transparent;
     margin: 2rem;
     padding: 0.6rem;
+    cursor: grab;
+}
+.widget-properties:active{
+    cursor: grabbing;
 }
 
 .widget-properties:hover{
@@ -44,20 +50,21 @@ body {
 }
 
 .widget-text {
-    font-size: 1.7rem;
-    margin: 0.25rem 0 0 0;
-    padding: 0;  
+    font-size: 1.3rem;
+    margin: auto;
+    padding: 0.3rem 0 0 0;  
 }
 .widget-icon {
     font-size: 2.5rem;
     margin: 0 10px 0 0;
 }
-.pop:hover{
-  animation: pop 1s linear 1;
+.pop{
+    transition: .5s ease;
 }
 
-@keyframes pop{
-  50%  {transform: scale(1.2);}
+
+.pop:hover{
+  transform: scale(1.2);
 }
 
 
