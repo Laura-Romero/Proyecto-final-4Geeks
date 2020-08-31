@@ -1,26 +1,22 @@
 import React, { useState, useEffect, useContext, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import PropTypes from "prop-types";
 
 import "../../styles/userInterface.scss";
 import { WidgetTitle } from "./widgetTitle";
 import { Widget } from "./widget";
 
-export const WidgetTable = props => {
+export const WidgetTable = () => {
+	const { store } = useContext(Context);
 	return (
 		<Fragment>
 			<div className="widget-table floating-table-effect col-10 offset-1 col-md-4 offset-md-0">
 				<WidgetTitle />
-				<Widget widgetClassName="widget-icon fa fa-twitter" widgetName="Twitter" />
-				<Widget widgetClassName="widget-icon fa fa-google" widgetName="Gmail" />
-				<Widget widgetClassName="widget-icon fa fa-cloud" widgetName="Weather" />
-				<Widget widgetClassName="widget-icon fa fa-clock-o" widgetName="Clock" />
-				<Widget widgetClassName="widget-icon fa fa-heart" widgetName="Compliments" />
-				<Widget widgetClassName="widget-icon fa fa-tasks" widgetName="To do list" />
+				{store.widgetInfo.map((item, index) => {
+					return <Widget key={index} widgetName={item.title} widgetClassName={item.class} />;
+				})}
+				{/* <Widget widgetClassName="widget-icon fa fa-twitter" widgetName="Twitter" /> */}
 			</div>
 		</Fragment>
 	);
 };
-
-WidgetTable.propTypes = {};
