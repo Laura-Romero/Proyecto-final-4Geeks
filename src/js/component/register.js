@@ -30,7 +30,7 @@ export const Register = () => {
 							<label>Password:</label>
 						</div>
 						<div className="row mx-1">
-							<input type="text" className="form-control" />
+							<input type="password" className="form-control" />
 						</div>
 
 						<div className="row d-flex justify-content-between pt-3">
