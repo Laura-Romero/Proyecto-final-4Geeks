@@ -10,9 +10,10 @@ export const Register = () => {
 	const [inputCountry, setCountry] = useState("");
 	const [inputCity, setCity] = useState("");
 
-	let validation = (username, email, fullName, country, city) => {
+	let validation = (username, email, fullName, country, city, password) => {
 		const checkEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		const checkCharacter = /[&\/\\#,+()$~%.'":*?<>{}]/g;
+		const regex = /^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ]/;
 
 		if (!checkEmail.test(email)) {
 			console.log(checkEmail.test(email));
@@ -25,6 +26,10 @@ export const Register = () => {
 			setUserName("Error");
 		}
 
+		if (password.length < 6 || !regex.test(password) || !checkCharacter.test(password) || password == "") {
+			console.log(regex.test(password), "password");
+			setPassw("Error");
+		}
 		if (checkCharacter.test(fullName) || fullName == "") {
 			setFullName("Error");
 		}
@@ -74,7 +79,11 @@ export const Register = () => {
 					<label>Password:</label>
 				</div>
 				<div className="row mx-1">
-					<input type="password" onChange={e => setPassw(e.target.value)} className="form-control" />
+					<input
+						type="password"
+						onChange={e => setPassw(e.target.value)}
+						className={inputPassw == "Error" ? "form-control border border-danger" : "form-control"}
+					/>
 				</div>
 
 				<div className="row mx-1 pt-3">
@@ -118,7 +127,7 @@ export const Register = () => {
 						className="btn btn-block mt-3"
 						onClick={e => {
 							e.preventDefault();
-							validation(inputUsername, inputMail, inputFullName, inputCountry, inputCity);
+							validation(inputUsername, inputMail, inputFullName, inputCountry, inputCity, inputPassw);
 							actions.addUser(
 								inputFullName,
 								inputUsername,
