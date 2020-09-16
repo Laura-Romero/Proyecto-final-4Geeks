@@ -7,7 +7,7 @@ import { AboutSection } from "../component/aboutSection";
 export const InfoAboutSection = () => {
 	return (
 		<Fragment>
-			<Navbar navbarButton="Back to Home" />
+			<Navbar navbarButton="Back to Home" linkTo="/" />
 			<AboutSection />
 		</Fragment>
 	);
