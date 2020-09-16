@@ -1,16 +1,30 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
+			widgetInfo: [
 				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
+					title: "Twitter",
+					class: "widget-icon fa fa-twitter"
 				},
 				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
+					title: "Gmail",
+					class: "widget-icon fa fa-google"
+				},
+				{
+					title: "Weather",
+					class: "widget-icon fa fa-cloud"
+				},
+				{
+					title: "Clock",
+					class: "widget-icon fa fa-clock-o"
+				},
+				{
+					title: "Compliments",
+					class: "widget-icon fa fa-heart"
+				},
+				{
+					title: "To do list",
+					class: "widget-icon fa fa-tasks"
 				}
 			]
 		},

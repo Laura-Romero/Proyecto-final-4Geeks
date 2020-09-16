@@ -9,7 +9,9 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { UserInterface } from "./views/userInterface";
 import { InfoAboutSection } from "./views/InfoAboutSection";
+
 
 //create your first component
 const Layout = () => {

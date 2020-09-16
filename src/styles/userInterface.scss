@@ -1,0 +1,85 @@
+body {
+    background-color:transparent;
+    font-family: 'Roboto', sans-serif;
+}
+.user-interface{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+.widget-table{
+    background: transparent;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.35rem;
+
+}
+.widget-title{
+    margin: 1rem 0 0 1.5rem;
+}
+.widget-instructions{
+    margin: 1rem 0 1rem 1.5rem;
+    font-size: 1rem;
+    color: rgb(121, 121, 121)
+}
+
+.float-effect {
+    border-radius: 20px;
+    box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);
+
+}
+.floating-table-effect {
+    border-radius: 20px;
+    box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);
+}  
+
+
+.widget-properties{
+    background-color:  transparent;
+    margin: 2rem;
+    padding: 0.6rem;
+    cursor: grab;
+}
+.widget-properties:active{
+    cursor: grabbing;
+}
+
+.widget-properties:hover{
+    background-color: rgba(255, 255, 255, 1);   
+}
+
+.widget-text {
+    font-size: 1.3rem;
+    margin: auto;
+    padding: 0.3rem 0 0 0;  
+}
+.widget-icon {
+    font-size: 2.5rem;
+    margin: 0 10px 0 0;
+}
+.pop{
+    transition: .5s ease;
+}
+
+
+.pop:hover{
+  transform: scale(1.2);
+}
+
+
+@media only screen and (max-width: 768px) {
+  
+    .widget-text {
+        font-size: 1rem;
+        padding: 0.5rem 0 0 0.5rem;
+    }
+    .widget-table{
+        margin: auto;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .user-interface{
+    display: block;
+    }
+}
