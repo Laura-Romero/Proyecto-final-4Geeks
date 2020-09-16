@@ -1,0 +1,30 @@
+body {
+    background-color: black;
+}
+
+.screen {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.horizontal-box {
+    width: 33.33%;
+    height: 20%;
+    border: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+.vertical-box {
+    width: 25%;
+    height: 60%;
+    border: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+.main-vertical-box {
+    width: 50%;
+    height: 60%;
+    border: solid 1px rgba(255, 255, 255, 0.1);
+}
