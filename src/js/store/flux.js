@@ -29,6 +29,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			loadWeather: () => {
+				const weatherURL =
+					"http://api.openweathermap.org/data/2.5/forecast?zip=11102&units=imperial&APPID=" +
+					ApiConfig.owmKey;
+				fetch(weatherURL)
+					.then(res => res.json())
+					.then(data => console.log("Lista de datos cargada", data.list));
+			},
+
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
