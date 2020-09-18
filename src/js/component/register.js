@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 export const Register = () => {
-	const { actions, store } = useContext(Context);
+	const { actions } = useContext(Context);
 
 	const [inputFullName, setFullName] = useState("");
 	const [inputUsername, setUserName] = useState("");
@@ -26,7 +26,13 @@ export const Register = () => {
 			setUserName("Error");
 		}
 
-		if (password.length < 6 || !regex.test(password) || !checkCharacter.test(password) || password == "") {
+		if (
+			password.length < 6 ||
+			!regex.test(password) ||
+			!checkCharacter.test(password) ||
+			password == "" ||
+			password.indexOf(" ") > 0
+		) {
 			console.log(regex.test(password), "password");
 			setPassw("Error");
 		}
