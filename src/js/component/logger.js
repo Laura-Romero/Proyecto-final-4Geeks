@@ -1,7 +1,9 @@
-import React, { useState, useContext}from "react";
+import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 export const Logger = () => {
-    const{actions, store} = useContext (Context);
+	const { actions, store } = useContext(Context);
+	const [inputFields, setInputFields] = useState({ username: "", password: "" });
+
 	return (
 		<div className="row d-flex justify-content-center">
 			<form className="col-10 col-lg-4 d-flex flex-column border rounded logger" action="" method="post">
@@ -20,7 +22,16 @@ export const Logger = () => {
 				</div>
 
 				<div className="row mx-1">
-					<input type="text" className="form-control" />
+					<input
+						type="text"
+						className="form-control"
+						onChange={e => {
+							let val = e.target.value;
+							setInputFields(inputFields => {
+								return { ...inputFields, username: val };
+							});
+						}}
+					/>
 				</div>
 
 				<div className="row mx-1 pt-3">
@@ -28,7 +39,16 @@ export const Logger = () => {
 				</div>
 
 				<div className="row mx-1">
-					<input type="text" className="form-control" />
+					<input
+						type="password"
+						className="form-control"
+						onChange={e => {
+							let val = e.target.value;
+							setInputFields(inputFields => {
+								return { ...inputFields, password: val };
+							});
+						}}
+					/>
 				</div>
 
 				<div className="row mx-1 pt-3">
