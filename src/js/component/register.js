@@ -47,6 +47,18 @@ export const Register = () => {
 		if (checkCharacter.test(city) || city == "") {
 			setCity("Error");
 		}
+		if (
+			username != "Error" &&
+			password != "Error" &&
+			email != "Error" &&
+			fullName != "Error" &&
+			city != "Error" &&
+			country != "Error"
+		) {
+			actions.addUser(inputFullName, inputUsername, inputPassw, inputMail, inputCountry, inputCity);
+		} else {
+			alert("revisar datos");
+		}
 	};
 
 	return (
@@ -134,14 +146,6 @@ export const Register = () => {
 						onClick={e => {
 							e.preventDefault();
 							validation(inputUsername, inputMail, inputFullName, inputCountry, inputCity, inputPassw);
-							actions.addUser(
-								inputFullName,
-								inputUsername,
-								inputPassw,
-								inputMail,
-								inputCountry,
-								inputCity
-							);
 						}}>
 						SUBMIT
 					</button>

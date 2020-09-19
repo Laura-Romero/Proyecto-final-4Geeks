@@ -30,7 +30,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					inputCountry,
 					inputCity != "")
 				) {
-					fetch("https://3000-a3b82b6f-7895-458b-b9a0-984cf8e6081d.ws-eu01.gitpod.io/user", {
+					console.log(inputFullName, inputUsername, inputPassw, inputMail, inputCountry, inputCity, "FEF");
+					fetch("https://3000-a9742d5a-52d2-46fc-af41-a5ea76429571.ws-eu01.gitpod.io/user", {
 						method: "POST",
 						headers: { "Content-Type": "application/json" },
 						body: JSON.stringify({
@@ -47,8 +48,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 							return response.json();
 						})
 						.then(function(responseAsJson) {
+							//aqui validar que la respuesta sea correcta para yo redirigir o lanzar un mensaje
 							console.log(responseAsJson);
-						});
+						}); /* .catch(throw) */
+				} else {
+					alert("comprueba los datos");
 				}
 			}
 
