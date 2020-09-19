@@ -90,6 +90,7 @@ export const Register = () => {
 						onChange={e => setUserName(e.target.value)}
 						className={inputUsername == "Error" ? "form-control border border-danger" : "form-control"}
 					/>
+
 					{/* <div className="invalid-feedback">More of 5 Characters</div> */}
 				</div>
 
