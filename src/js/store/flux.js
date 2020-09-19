@@ -1,4 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
+	const ApiConfig = {
+		ownKey: "4cd5539f8e0617ff4cc0a570dd24742a"
+	};
 	return {
 		store: {
 			widgetInfo: [
@@ -29,37 +32,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
-			loadWeather: () => {
-				const weatherURL =
-					"http://api.openweathermap.org/data/2.5/forecast?zip=11102&units=imperial&APPID=" +
-					ApiConfig.owmKey;
+			loadWeather: ciudad => {
+				const weatherURL = `https://api.openweathermap.org/data/2.5/find?q=${ciudad}&appid=4cd5539f8e0617ff4cc0a570dd24742a`;
 				fetch(weatherURL)
 					.then(res => res.json())
 					.then(data => console.log("Lista de datos cargada", data.list));
-			},
-
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
 			}
 		}
 	};
