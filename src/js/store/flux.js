@@ -31,7 +31,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					inputCity != "")
 				) {
 					console.log(inputFullName, inputUsername, inputPassw, inputMail, inputCountry, inputCity, "FEF");
-					fetch("https://3000-a9742d5a-52d2-46fc-af41-a5ea76429571.ws-eu01.gitpod.io/user", {
+					fetch("https://3000-db796cb0-c9f4-4b21-ab2e-802de7aee960.ws-eu01.gitpod.io/user", {
 						method: "POST",
 						headers: { "Content-Type": "application/json" },
 						body: JSON.stringify({
@@ -48,7 +48,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							return response.json();
 						})
 						.then(function(responseAsJson) {
-							//aqui validar que la respuesta sea correcta para yo redirigir o lanzar un mensaje
+							//aqui validar que la respuesta sea correcta (si da un 200) para yo redirigir o lanzar un mensaje
 							console.log(responseAsJson);
 						}); /* .catch(throw) */
 				} else {
