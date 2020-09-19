@@ -11,7 +11,10 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { UserInterface } from "./views/userInterface";
 import { InfoAboutSection } from "./views/InfoAboutSection";
-
+import { TwitterWidget } from "./component/twitterwidget";
+import { Compliments } from "./component/compliments";
+import { Clock } from "./component/clock";
+import { MirrorScreen } from "./views/mirrorScreen";
 
 //create your first component
 const Layout = () => {
@@ -25,13 +28,13 @@ const Layout = () => {
 				<ScrollToTop>
 					<Switch>
 						<Route exact path="/">
-							<Home />
+							<UserInterface />
 						</Route>
 						<Route exact path="/InfoAboutSection">
 							<InfoAboutSection />
 						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
+						<Route exact path="/mirror">
+							<MirrorScreen />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
