@@ -1,8 +1,33 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 export const Logger = () => {
-	const { actions, store } = useContext(Context);
+	const { actions } = useContext(Context);
 	const [inputFields, setInputFields] = useState({ username: "", password: "" });
+
+	let validation = input => {
+		console.log(input.username);
+		console.log(input.password, ".password");
+		const regex = /^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ]/;
+		const checkCharacter = /[&\/\\#,+()$~%.'":*?<>{}]/g;
+		//actions.logginUser(inputFields.username, inputFields.password);
+
+		/* if (inputusername < 6) {
+			console.log(input.username, "aqui llegó?");
+			setInputFields((input.username = "Error")); */
+
+		/* 	if (
+			passwordUser < 6 ||
+			!regex.test(passwordUser) ||
+			!checkCharacter.test(passwordUser) ||
+			passwordUser == "" ||
+			passwordUser.indexOf(" ") > 0
+		) {
+			setInputFields(inputFields => {
+				console.log(inputFields, "jgflS");
+				return { ...inputFields, passwordUser: "Error" };
+			});
+		} */
+	};
 
 	return (
 		<div className="row d-flex justify-content-center">
@@ -24,7 +49,9 @@ export const Logger = () => {
 				<div className="row mx-1">
 					<input
 						type="text"
-						className="form-control"
+						className={
+							inputFields.username == "Error" ? "form-control border border-danger" : "form-control"
+						}
 						onChange={e => {
 							let val = e.target.value;
 							setInputFields(inputFields => {
@@ -40,8 +67,10 @@ export const Logger = () => {
 
 				<div className="row mx-1">
 					<input
-						type="password"
-						className="form-control"
+						type="text"
+						className={
+							inputFields.passwordUser == "Error" ? "form-control border border-danger" : "form-control"
+						}
 						onChange={e => {
 							let val = e.target.value;
 							setInputFields(inputFields => {
@@ -59,7 +88,18 @@ export const Logger = () => {
 				</div>
 
 				<div className="row mx-1 pb-3">
-					<button className=" btn btn-block mt-2 mb-4 py-0 ">SIGN IN</button>
+					<button
+						className=" btn btn-block mt-2 mb-2 py-0 button-User"
+						onClick={e => {
+							e.preventDefault();
+							validation(inputFields.username);
+						}}>
+						SIGN IN
+					</button>
+				</div>
+
+				<div className="row mx-1 pb-3">
+					<button className=" btn btn-block mt-2 mb-4 py-0 button-Google">Sign in with Google</button>
 				</div>
 			</form>
 		</div>

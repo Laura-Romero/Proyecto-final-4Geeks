@@ -8,6 +8,8 @@ export const Home = () => (
 	<Fragment>
 		<Navbar navbarButton="About the mirror" linkTo="/InfoAboutSection" />
 		<div className="text-center mt-5" />
-		<Logger />
+		<div className="container">
+			<Logger />
+		</div>
 	</Fragment>
 );

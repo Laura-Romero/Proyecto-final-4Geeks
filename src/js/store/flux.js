@@ -15,15 +15,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			logginUser: (inputUsername, inputPassword) => {
+				console.log(inputPassword, inputUsername);
+				fetch("https://3000-db796cb0-c9f4-4b21-ab2e-802de7aee960.ws-eu01.gitpod.io/login", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						username: inputUsername,
+						password: inputPassword
+					})
+				})
+					.then(function(response) {
+						// si la respusta es un 200, ......?
+						return response.json();
+					})
+					.then(function(responseAsJson) {
+						//guardar usuario en el store
+						console.log(responseAsJson);
+					}); //catch(throw)
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
