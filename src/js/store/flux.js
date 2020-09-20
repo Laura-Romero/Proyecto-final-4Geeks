@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	};
 	return {
 		store: {
+			dailyData: {},
 			widgetInfo: [
 				{
 					title: "Twitter",
@@ -32,11 +33,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
-			loadWeather: ciudad => {
-				const weatherURL = `https://api.openweathermap.org/data/2.5/find?q=${ciudad}&appid=4cd5539f8e0617ff4cc0a570dd24742a`;
+			loadWeather: city => {
+				const weatherURL = `https://api.openweathermap.org/data/2.5/find?q=${city}&appid=4cd5539f8e0617ff4cc0a570dd24742a`;
 				fetch(weatherURL)
 					.then(res => res.json())
-					.then(data => console.log("Lista de datos cargada", data.list));
+					.then(data => {
+						console.log(data.list[0]);
+						const dailyData = data.list[0];
+						setStore({
+							dailyData: dailyData
+						});
+					});
 			}
 		}
 	};
