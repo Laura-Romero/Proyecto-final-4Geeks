@@ -56,6 +56,7 @@ export const Register = () => {
 			country != "Error"
 		) {
 			actions.addUser(inputFullName, inputUsername, inputPassw, inputMail, inputCountry, inputCity);
+			return username == "" && email == "" && fullName == "" && country == "" && city == "" && password == "";
 		} else {
 			alert("revisar datos");
 		}

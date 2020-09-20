@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -31,7 +33,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					inputCity != "")
 				) {
 					console.log(inputFullName, inputUsername, inputPassw, inputMail, inputCountry, inputCity, "FEF");
-					fetch("https://3000-db796cb0-c9f4-4b21-ab2e-802de7aee960.ws-eu01.gitpod.io/user", {
+					fetch("https://3000-a646f059-ee41-457c-be7c-66697288378c.ws-eu01.gitpod.io/user", {
 						method: "POST",
 						headers: { "Content-Type": "application/json" },
 						body: JSON.stringify({
@@ -45,6 +47,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 						})
 					})
 						.then(function(response) {
+							if (response.StatusCode == "200") {
+								LinktTo = "/logger";
+							} else {
+								alert("revise los datos");
+							}
 							return response.json();
 						})
 						.then(function(responseAsJson) {
