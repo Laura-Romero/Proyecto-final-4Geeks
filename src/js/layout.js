@@ -11,7 +11,10 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { InfoAboutSection } from "./views/InfoAboutSection";
 
+
 import { Logger } from "./component/logger";
+import { Register } from "./component/register";
+
 
 //create your first component
 const Layout = () => {
