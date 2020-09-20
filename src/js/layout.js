@@ -11,10 +11,9 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { InfoAboutSection } from "./views/InfoAboutSection";
 
-
 import { Logger } from "./component/logger";
 import { Register } from "./component/register";
-
+import { Registration } from "./views/registration";
 
 //create your first component
 const Layout = () => {
@@ -35,6 +34,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
+						</Route>
+						<Route exact path="/registration">
+							<Registration />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

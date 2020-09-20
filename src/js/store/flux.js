@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-
+import React from "react";
+import { Redirect } from "react-router-dom";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -18,7 +19,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
-
 			logginUser: (inputUsername, inputPassword) => {
 				console.log(inputPassword, inputUsername);
 				fetch("https://3000-db796cb0-c9f4-4b21-ab2e-802de7aee960.ws-eu01.gitpod.io/login", {
@@ -38,21 +38,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(responseAsJson);
 					}); //catch(throw)
 			},
-
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-=======
 			addUser: (inputFullName, inputUsername, inputPassw, inputMail, inputCountry, inputCity) => {
 				if (
 					(inputFullName,
@@ -82,21 +67,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 						})
 					})
 						.then(function(response) {
-							if (response.StatusCode == "200") {
-								LinktTo = "/logger";
+							console.log(response.json());
+							if (response.status == 200) {
+								<Link to="/" />;
 							} else {
 								alert("revise los datos");
 							}
-							return response.json();
+							return response;
 						})
 						.then(function(responseAsJson) {
-							//aqui validar que la respuesta sea correcta (si da un 200) para yo redirigir o lanzar un mensaje
 							console.log(responseAsJson);
-						}); /* .catch(throw) */
+						})
+						.catch(function(error) {
+							console.log(error);
+						});
 				} else {
 					alert("comprueba los datos");
 				}
-
 			}
 
 			// Use getActions to call a function within a fuction

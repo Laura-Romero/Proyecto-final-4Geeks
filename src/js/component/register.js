@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
+
 export const Register = () => {
 	const { actions } = useContext(Context);
 
