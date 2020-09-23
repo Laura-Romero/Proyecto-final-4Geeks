@@ -16,6 +16,10 @@ import { Compliments } from "./component/compliments";
 import { Clock } from "./component/clock";
 import { MirrorScreen } from "./views/mirrorScreen";
 
+import { Logger } from "./component/logger";
+import { Register } from "./component/register";
+import { Registration } from "./views/registration";
+
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -28,7 +32,7 @@ const Layout = () => {
 				<ScrollToTop>
 					<Switch>
 						<Route exact path="/">
-							<UserInterface />
+							<Home />
 						</Route>
 						<Route exact path="/InfoAboutSection">
 							<InfoAboutSection />
@@ -36,6 +40,13 @@ const Layout = () => {
 						<Route exact path="/mirror">
 							<MirrorScreen />
 						</Route>
+						<Route exact path="/registration">
+							<Registration />
+						</Route>
+						<Route exact path="/userInterface">
+							<UserInterface />
+						</Route>
+
 						<Route>
 							<h1>Not found!</h1>
 						</Route>

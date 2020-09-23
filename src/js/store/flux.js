@@ -1,6 +1,10 @@
+import { Link } from "react-router-dom";
+import React from "react";
+import { Redirect } from "react-router-dom";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			arrayNewUser: [],
 			widgetInfo: [
 				{
 					title: "Twitter",
@@ -30,6 +34,73 @@ const getState = ({ getStore, getActions, setStore }) => {
 			widgetMirror: []
 		},
 		actions: {
+			postLogin: async (inputUsername, inputPassword) => {
+				let userToken = await fetch(
+					"https://3000-a646f059-ee41-457c-be7c-66697288378c.ws-eu01.gitpod.io/login",
+
+					{
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify({
+							username: inputUsername,
+							password: inputPassword
+						})
+					}
+				);
+				userToken = await userToken.json();
+
+				setStore({ tokenLogin: userToken.token });
+				let user = await fetch("https://3000-a646f059-ee41-457c-be7c-66697288378c.ws-eu01.gitpod.io/user", {
+					headers: { "Content-Type": "application/json", "X-Access-Point": userToken.token }
+				});
+
+				user = await user.json();
+				setStore({ user: user });
+			},
+			loginOautUser: async () => {
+				let response = await fetch(
+					"https://3000-a646f059-ee41-457c-be7c-66697288378c.ws-eu01.gitpod.io/login",
+					{}
+				);
+				response = await userOaut.json();
+				console.log(response);
+			},
+			addUser: async (inputFullName, inputUsername, inputPassw, inputMail, inputCountry, inputCity) => {
+				if (
+					(inputFullName,
+					inputUsername,
+					inputPassw,
+					inputMail,
+					inputCountry,
+					inputCity != "Error" || inputFullName,
+					inputUsername,
+					inputPassw,
+					inputMail,
+					inputCountry,
+					inputCity != "")
+				) {
+					let register = await fetch(
+						"https://3000-a646f059-ee41-457c-be7c-66697288378c.ws-eu01.gitpod.io/user",
+						{
+							method: "POST",
+							headers: { "Content-Type": "application/json" },
+							body: JSON.stringify({
+								fullname: inputFullName,
+								username: inputUsername,
+								password: inputPassw,
+								email: inputMail,
+								country: inputCountry,
+								city: inputCity,
+								is_active: true
+							})
+						}
+					);
+					register = await register.json();
+					setStore({ register: register });
+				} else {
+					alert("comprueba los datos");
+				}
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
@@ -48,6 +119,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				setStore({ widgetMirror: widgetArray });
 			}
+
+			// Use getActions to call a function within a fuction
 		}
 	};
 };
