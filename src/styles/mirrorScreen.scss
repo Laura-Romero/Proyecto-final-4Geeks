@@ -1,6 +1,4 @@
-body {
-   
-}
+
 
 .screen {
   margin: auto;
@@ -11,36 +9,14 @@ body {
   flex-wrap: wrap;
 }
 
-.horizontal-box {
+
+.box {
+    // border: 1px solid white;
     background-color: black;
     width: 33.33%;
-    height: 25%;
-    padding: 0.5rem;
-    
-}
-.top-horizontal-box {
-    background-color: black;
-    width: 40%;
-    height: 25%;
+    height: 33.34%;
     padding: 0.4rem;
-}
-
-.vertical-box {
-    background-color: black;
-    width: 25%;
-    height: 50%;
-    
-}
-
-.main-vertical-box {
-     background-color: black;
-    width: 50%;
-    height: 50%;
-    
-}
-.clock-box {
-    background-color: black;
-    width: 20%;
-    height: 25%;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

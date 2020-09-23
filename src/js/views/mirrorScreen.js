@@ -9,21 +9,21 @@ export const MirrorScreen = () => {
 	return (
 		<Fragment>
 			<div className="screen">
-				<div className="top-horizontal-box ">
+				<div className="box ">
 					<TwitterWidget />
 				</div>
-				<div className="clock-box ">
+				<div className="box " />
+				<div className="box " />
+				<div className="box ">
 					<Clock />
 				</div>
-				<div className="top-horizontal-box " />
-				<div className="vertical-box " />
-				<div className="main-vertical-box " />
-				<div className="vertical-box " />
-				<div className="horizontal-box " />
-				<div className="horizontal-box ">
+				<div className="box " />
+				<div className="box " />
+				<div className="box ">
 					<Compliments />
 				</div>
-				<div className="horizontal-box " />
+				<div className="box " />
+				<div className="box " />
 			</div>
 		</Fragment>
 	);

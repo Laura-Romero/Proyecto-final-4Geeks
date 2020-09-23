@@ -6,8 +6,8 @@ import { Widget } from "./widget";
 export const Compliments = () => {
 	const complimentList = [
 		"OMG!! You look AWESOME today 🤯",
-		"Daaamn son!! who's this hottie??!!🔥🔥🔥🔥",
-		"Communism doesn't work! DON'T FORGET!!",
+		"Remember how much you worth",
+		"You have the most beautiful eyes!",
 		"Today is gonna be great!",
 		"You are amazing!🤩",
 		"You're a smart cookie🍪",
@@ -27,7 +27,7 @@ export const Compliments = () => {
 	useEffect(() => {
 		const compInterval = setInterval(() => {
 			setCompliment(Math.floor(Math.random() * 16));
-		}, 3000);
+		}, 60000);
 		return () => clearInterval(compInterval);
 	}, []);
 	console.log(compliment);
