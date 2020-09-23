@@ -28,7 +28,7 @@ const Layout = () => {
 				<ScrollToTop>
 					<Switch>
 						<Route exact path="/">
-							<UserInterface />
+							<Home />
 						</Route>
 						<Route exact path="/InfoAboutSection">
 							<InfoAboutSection />
@@ -36,8 +36,8 @@ const Layout = () => {
 						<Route exact path="/mirror">
 							<MirrorScreen />
 						</Route>
-						<Route>
-							<h1>Not found!</h1>
+						<Route exact path="/logged">
+							<UserInterface />
 						</Route>
 					</Switch>
 				</ScrollToTop>
