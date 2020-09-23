@@ -26,7 +26,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					title: "To do list",
 					class: "widget-icon fa fa-tasks"
 				}
-			]
+			],
+			widgetMirror: [{ array: [] }]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -35,11 +36,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getTweets: async () => {
-				let response = await fetch(
-					`https://3000-ca788549-3ff8-4b13-84a1-3f5ffcf84ebf.ws-eu01.gitpod.io/twitter`
-				);
+				let response = await fetch("https://mirrorify.herokuapp.com/twitter");
 				let data = await response.json();
-				console.log(data);
 				setStore({ tweets: data });
 			}
 		}
