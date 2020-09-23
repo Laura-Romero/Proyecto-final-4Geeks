@@ -43,6 +43,10 @@ const Layout = () => {
 						<Route exact path="/registration">
 							<Registration />
 						</Route>
+						<Route exact path="/userInterface">
+							<UserInterface />
+						</Route>
+
 						<Route>
 							<h1>Not found!</h1>
 						</Route>

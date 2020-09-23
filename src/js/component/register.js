@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
+import { Redirect } from "react-router-dom";
 
 export const Register = () => {
-	const { actions } = useContext(Context);
+	const { actions, store } = useContext(Context);
 
 	const [inputFullName, setFullName] = useState("");
 	const [inputUsername, setUserName] = useState("");
@@ -57,103 +58,114 @@ export const Register = () => {
 			country != "Error"
 		) {
 			actions.addUser(inputFullName, inputUsername, inputPassw, inputMail, inputCountry, inputCity);
-			return username == "" && email == "" && fullName == "" && country == "" && city == "" && password == "";
 		} else {
 			alert("revisar datos");
 		}
 	};
-
-	return (
-		<div className="row d-flex justify-content-center">
-			<form className="register col-10 col-lg-4 d-flex flex-column" action="" method="post">
-				<div className="row title d-flex justify-content-center py-3">
-					<h3>
-						<strong>Registration</strong>
-					</h3>
-				</div>
-
-				<div className="row mx-1">
-					<label>Full name:</label>
-				</div>
-				<div className="row mx-1">
-					<input
-						type="text"
-						onChange={e => setFullName(e.target.value)}
-						className={inputFullName == "Error" ? "form-control border border-danger" : "form-control"}
-					/>
-				</div>
-
-				<div className="row mx-1 pt-3">
-					<label>Username:</label>
-				</div>
-				<div className="row mx-1">
-					<input
-						type="text"
-						onChange={e => setUserName(e.target.value)}
-						className={inputUsername == "Error" ? "form-control border border-danger" : "form-control"}
-					/>
-
-					{/* <div className="invalid-feedback">More of 5 Characters</div> */}
-				</div>
-
-				<div className="row mx-1 pt-3">
-					<label>Password:</label>
-				</div>
-				<div className="row mx-1">
-					<input
-						type="password"
-						onChange={e => setPassw(e.target.value)}
-						className={inputPassw == "Error" ? "form-control border border-danger" : "form-control"}
-					/>
-				</div>
-
-				<div className="row mx-1 pt-3">
-					<label>Email addres:</label>
-				</div>
-				<div className="row mx-1">
-					<input
-						type="text"
-						onChange={e => setMail(e.target.value)}
-						className={inputMail == "Error" ? "form-control border border-danger" : "form-control"}
-					/>
-				</div>
-
-				<div className="row d-flex justify-content-between pt-3">
-					<div className="col ml-2">
-						<label>Country:</label>
+	if (store.register) {
+		return <Redirect to="/mirror" />;
+	} else {
+		return (
+			<div className="row d-flex justify-content-center">
+				<form className="register col-10 col-lg-4 d-flex flex-column border rounded" action="" method="post">
+					<div className="row title d-flex justify-content-center py-3">
+						<h3>
+							<strong>Registration</strong>
+						</h3>
 					</div>
-					<div className="col">
-						<label>City:</label>
+
+					<div className="row mx-1">
+						<label>Full name:</label>
 					</div>
-				</div>
-				<div className="row d-flex justify-content-between">
-					<div className="col ml-1">
+					<div className="row mx-1">
 						<input
 							type="text"
-							onChange={e => setCountry(e.target.value)}
-							className={inputCountry == "Error" ? "form-control border border-danger" : "form-control"}
+							onChange={e => setFullName(e.target.value)}
+							className={inputFullName == "Error" ? "form-control border border-danger" : "form-control"}
 						/>
 					</div>
-					<div className="col mr-1">
+
+					<div className="row mx-1 pt-3">
+						<label>Username:</label>
+					</div>
+					<div className="row mx-1">
 						<input
 							type="text"
-							onChange={e => setCity(e.target.value)}
-							className={inputCity == "Error" ? "form-control border border-danger" : "form-control"}
+							onChange={e => setUserName(e.target.value)}
+							className={inputUsername == "Error" ? "form-control border border-danger" : "form-control"}
+						/>
+
+						{/* <div className="invalid-feedback">More of 5 Characters</div> */}
+					</div>
+
+					<div className="row mx-1 pt-3">
+						<label>Password:</label>
+					</div>
+					<div className="row mx-1">
+						<input
+							type="password"
+							onChange={e => setPassw(e.target.value)}
+							className={inputPassw == "Error" ? "form-control border border-danger" : "form-control"}
 						/>
 					</div>
-				</div>
 
-				<div className="row mx-1 pb-4">
-					<button
-						className="btn btn-block mt-3"
-						onClick={e => {
-							e.preventDefault();
-							validation(inputUsername, inputMail, inputFullName, inputCountry, inputCity, inputPassw);
-						}}>
-						SUBMIT
-					</button>
-				</div>
-			</form>
-		</div>
-	);
+					<div className="row mx-1 pt-3">
+						<label>Email addres:</label>
+					</div>
+					<div className="row mx-1">
+						<input
+							type="text"
+							onChange={e => setMail(e.target.value)}
+							className={inputMail == "Error" ? "form-control border border-danger" : "form-control"}
+						/>
+					</div>
+
+					<div className="row d-flex justify-content-between pt-3">
+						<div className="col ml-2">
+							<label>Country:</label>
+						</div>
+						<div className="col">
+							<label>City:</label>
+						</div>
+					</div>
+					<div className="row d-flex justify-content-between">
+						<div className="col ml-1">
+							<input
+								type="text"
+								onChange={e => setCountry(e.target.value)}
+								className={
+									inputCountry == "Error" ? "form-control border border-danger" : "form-control"
+								}
+							/>
+						</div>
+						<div className="col mr-1">
+							<input
+								type="text"
+								onChange={e => setCity(e.target.value)}
+								className={inputCity == "Error" ? "form-control border border-danger" : "form-control"}
+							/>
+						</div>
+					</div>
+
+					<div className="row mx-1 pb-4">
+						<button
+							className="btn btn-block mt-3"
+							onClick={e => {
+								e.preventDefault();
+								validation(
+									inputUsername,
+									inputMail,
+									inputFullName,
+									inputCountry,
+									inputCity,
+									inputPassw
+								);
+							}}>
+							SUBMIT
+						</button>
+					</div>
+				</form>
+			</div>
+		);
+	}
 };

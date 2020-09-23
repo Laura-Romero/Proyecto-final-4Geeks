@@ -7,6 +7,8 @@ import { Register } from "../component/register";
 export const Registration = () => {
 	return (
 		<Fragment>
+			<Navbar navbarButton="About the mirror" linkTo="/InfoAboutSection" />
+			<div className="text-center mt-5" />
 			<Register />
 		</Fragment>
 	);

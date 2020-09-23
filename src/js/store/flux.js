@@ -5,7 +5,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			arrayNewUser: [],
-
 			widgetInfo: [
 				{
 					title: "Twitter",
@@ -57,25 +56,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				user = await user.json();
 				setStore({ user: user });
 			},
-			loginOautUser: (inputUsername, inputPassword) => {
-				fetch("https://3000-db796cb0-c9f4-4b21-ab2e-802de7aee960.ws-eu01.gitpod.io/login", {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({
-						username: inputUsername,
-						password: inputPassword
-					})
-				})
-					.then(function(response) {
-						// si la respusta es un 200, ......?
-						return response.json();
-					})
-					.then(function(responseAsJson) {
-						//guardar usuario en el store
-						console.log(responseAsJson);
-					}); //catch(throw)
+			loginOautUser: async () => {
+				let response = await fetch(
+					"https://3000-a646f059-ee41-457c-be7c-66697288378c.ws-eu01.gitpod.io/login",
+					{}
+				);
+				response = await userOaut.json();
+				console.log(response);
 			},
-			addUser: (inputFullName, inputUsername, inputPassw, inputMail, inputCountry, inputCity) => {
+			addUser: async (inputFullName, inputUsername, inputPassw, inputMail, inputCountry, inputCity) => {
 				if (
 					(inputFullName,
 					inputUsername,
@@ -89,35 +78,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 					inputCountry,
 					inputCity != "")
 				) {
-					console.log(inputFullName, inputUsername, inputPassw, inputMail, inputCountry, inputCity, "FEF");
-					fetch("https://3000-a646f059-ee41-457c-be7c-66697288378c.ws-eu01.gitpod.io/user", {
-						method: "POST",
-						headers: { "Content-Type": "application/json" },
-						body: JSON.stringify({
-							fullname: inputFullName,
-							username: inputUsername,
-							password: inputPassw,
-							email: inputMail,
-							country: inputCountry,
-							city: inputCity,
-							is_active: true
-						})
-					})
-						.then(function(response) {
-							console.log(response.json());
-							if (response.status == 200) {
-								<Link to="/" />;
-							} else {
-								alert("revise los datos");
-							}
-							return response;
-						})
-						.then(function(responseAsJson) {
-							console.log(responseAsJson);
-						})
-						.catch(function(error) {
-							console.log(error);
-						});
+					let register = await fetch(
+						"https://3000-a646f059-ee41-457c-be7c-66697288378c.ws-eu01.gitpod.io/user",
+						{
+							method: "POST",
+							headers: { "Content-Type": "application/json" },
+							body: JSON.stringify({
+								fullname: inputFullName,
+								username: inputUsername,
+								password: inputPassw,
+								email: inputMail,
+								country: inputCountry,
+								city: inputCity,
+								is_active: true
+							})
+						}
+					);
+					register = await register.json();
+					setStore({ register: register });
 				} else {
 					alert("comprueba los datos");
 				}

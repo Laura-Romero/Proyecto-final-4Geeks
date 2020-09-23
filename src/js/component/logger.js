@@ -32,7 +32,7 @@ export const Logger = () => {
 	};
 
 	if (store.user && store.tokenLogin) {
-		return <Redirect to="/mirror" />;
+		return <Redirect to="/userInterface" />;
 	} else {
 		return (
 			<div className="row d-flex justify-content-center">
@@ -107,7 +107,7 @@ export const Logger = () => {
 							className=" btn btn-block mt-2 mb-4 py-0 button-Google"
 							onClick={e => {
 								e.preventDefault();
-								validation(inputFields);
+								actions.loginOautUser();
 							}}>
 							Sign in with Google
 						</button>
