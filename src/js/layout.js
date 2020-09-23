@@ -16,9 +16,12 @@ import { Compliments } from "./component/compliments";
 import { Clock } from "./component/clock";
 import { MirrorScreen } from "./views/mirrorScreen";
 
+
+
 import { Logger } from "./component/logger";
 import { Register } from "./component/register";
 import { Registration } from "./views/registration";
+
 
 //create your first component
 const Layout = () => {

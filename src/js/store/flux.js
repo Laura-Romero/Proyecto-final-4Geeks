@@ -2,9 +2,16 @@ import { Link } from "react-router-dom";
 import React from "react";
 import { Redirect } from "react-router-dom";
 const getState = ({ getStore, getActions, setStore }) => {
+	const ApiConfig = {
+		ownKey: "4cd5539f8e0617ff4cc0a570dd24742a"
+	};
 	return {
 		store: {
+
+			dailyData: {},
+
 			arrayNewUser: [],
+
 			widgetInfo: [
 				{
 					title: "Twitter",
@@ -34,6 +41,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 			widgetMirror: []
 		},
 		actions: {
+
+			loadWeather: city => {
+				const weatherURL = `https://api.openweathermap.org/data/2.5/find?q=madrid,ES&appid=4cd5539f8e0617ff4cc0a570dd24742a&lang=es&units=metric&cnt=16`;
+				fetch(weatherURL)
+					.then(res => res.json())
+					.then(data => {
+						console.log(data);
+						const dailyData = data.list[0];
+
+						setStore({
+							day: dailyData
+						});
+					});
+      },
 			postLogin: async (inputUsername, inputPassword) => {
 				let userToken = await fetch(
 					"https://3000-a646f059-ee41-457c-be7c-66697288378c.ws-eu01.gitpod.io/login",
