@@ -6,9 +6,11 @@ import { AboutSection } from "../component/aboutSection";
 
 export const InfoAboutSection = () => {
 	return (
-		<Fragment>
-			<Navbar navbarButton="Back to Home" linkTo="/" />
-			<AboutSection />
-		</Fragment>
+		<div className="cont-log">
+			<Fragment>
+				<Navbar navbarButton="Back to Home" linkTo="/" />
+				<AboutSection />
+			</Fragment>
+		</div>
 	);
 };
