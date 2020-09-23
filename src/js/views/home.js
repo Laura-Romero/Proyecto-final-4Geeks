@@ -3,6 +3,7 @@ import "../../styles/logger.scss";
 import "../../styles/home.scss";
 import "../../styles/register.scss";
 import { Navbar } from "../component/navbar";
+import { Weather } from "../component/weather";
 
 import { Logger } from "../component/logger";
 
@@ -17,5 +18,6 @@ export const Home = () => (
 				<Logger />
 			</div>
 		</div>
+
 	</Fragment>
 );
