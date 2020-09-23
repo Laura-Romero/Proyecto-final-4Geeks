@@ -37,19 +37,23 @@
     padding: 0;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
+.mirrorcito {
+    color: white;
+    width: 88%;
+    height: 30rem;
+    margin: auto;
+    background-color: black;
+    border-radius: 20px;
+    box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);
+}
+.screenExample{
+    margin: auto;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
 body {
     background-color:transparent;
     font-family: 'Roboto', sans-serif;
