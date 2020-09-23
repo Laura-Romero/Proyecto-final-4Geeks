@@ -32,7 +32,7 @@ const Layout = () => {
 				<ScrollToTop>
 					<Switch>
 						<Route exact path="/">
-							<UserInterface />
+							<Home />
 						</Route>
 						<Route exact path="/InfoAboutSection">
 							<InfoAboutSection />

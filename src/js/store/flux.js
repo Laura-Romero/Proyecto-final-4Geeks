@@ -4,12 +4,9 @@ import { Redirect } from "react-router-dom";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-
 			arrayNewUser: [],
-			demo: [
 
 			widgetInfo: [
-
 				{
 					title: "Twitter",
 					class: "widget-icon fa fa-twitter"
@@ -37,9 +34,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			postLogin: async (inputUsername, inputPassword) => {
+				let userToken = await fetch(
+					"https://3000-a646f059-ee41-457c-be7c-66697288378c.ws-eu01.gitpod.io/login",
 
-			logginUser: (inputUsername, inputPassword) => {
-				console.log(inputPassword, inputUsername);
+					{
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify({
+							username: inputUsername,
+							password: inputPassword
+						})
+					}
+				);
+				userToken = await userToken.json();
+
+				setStore({ tokenLogin: userToken.token });
+				let user = await fetch("https://3000-a646f059-ee41-457c-be7c-66697288378c.ws-eu01.gitpod.io/user", {
+					headers: { "Content-Type": "application/json", "X-Access-Point": userToken.token }
+				});
+
+				user = await user.json();
+				setStore({ user: user });
+			},
+			loginOautUser: (inputUsername, inputPassword) => {
 				fetch("https://3000-db796cb0-c9f4-4b21-ab2e-802de7aee960.ws-eu01.gitpod.io/login", {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
@@ -103,7 +121,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} else {
 					alert("comprueba los datos");
 				}
-
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
@@ -116,7 +134,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let data = await response.json();
 				console.log(data);
 				setStore({ tweets: data });
-
 			}
 
 			// Use getActions to call a function within a fuction
