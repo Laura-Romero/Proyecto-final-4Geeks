@@ -9,6 +9,7 @@ import { WidgetTable } from "../component/widgetTable";
 import { MirrorLayoutExample } from "../component/mirrorLayoutExample";
 import { Navbar } from "../component/navbar";
 import { NavbarUser } from "../component/navbarUser";
+import { MirrorScreenLayout } from "../component/mirrorLayoutExample";
 // import { WidgetTitle } from "./widgetTitle";
 // import { Widget } from "./widget";
 
@@ -34,6 +35,7 @@ const item4 = {
 };
 
 export const UserInterface = () => {
+	const { store, actions } = useContext(Context);
 	const [state, setState] = useState({
 		widgetTable: {
 			title: "Widgets",
@@ -62,14 +64,17 @@ export const UserInterface = () => {
 				prev[source.droppableId].items.splice(source.index, 1);
 				prev[destination.droppableId].items.splice(destination.index, 0, itemCopy);
 
+				actions.setWidgetArray(state.mirrorLayout.items);
 				return prev;
 			} else if (destination.droppableId == "widgetTable") {
 				prev[source.droppableId].items.splice(source.index, 1);
 				prev[destination.droppableId].items.splice(destination.index, 0, itemCopy);
+				actions.setWidgetArray(state.mirrorLayout.items);
 				return prev;
 			} else if (destination.droppableId == source.droppableId) {
 				prev[source.droppableId].items.splice(source.index, 1);
 				prev[destination.droppableId].items.splice(destination.index, 0, itemCopy);
+				actions.setWidgetArray(state.mirrorLayout.items);
 				return prev;
 			} else {
 				return prev;
@@ -185,6 +190,9 @@ export const UserInterface = () => {
 						}
 					})}
 				</DragDropContext>
+			</div>
+			<div className="mirrorcito">
+				<MirrorScreenLayout />
 			</div>
 		</>
 	);
