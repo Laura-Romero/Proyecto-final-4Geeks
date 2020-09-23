@@ -3,11 +3,7 @@ import "../../styles/logger.scss";
 import "../../styles/home.scss";
 import "../../styles/register.scss";
 import { Navbar } from "../component/navbar";
-import { Weather } from "../component/weather";
-
 import { Logger } from "../component/logger";
-
-import { Register } from "../component/register";
 
 export const Home = () => (
 	<Fragment>
@@ -18,6 +14,5 @@ export const Home = () => (
 				<Logger />
 			</div>
 		</div>
-
 	</Fragment>
 );
