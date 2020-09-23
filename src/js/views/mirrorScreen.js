@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from "react";
-
+import { Context } from "../store/appContext";
 import "../../styles/mirrorScreen.scss";
 import { TwitterWidget } from "../component/twitterwidget";
 import { Clock } from "../component/clock";
@@ -8,7 +8,6 @@ import { Context } from "../store/appContext";
 import { Redirect } from "react-router-dom";
 
 export const MirrorScreen = () => {
-
 	const { store } = useContext(Context);
 	if (store.user && store.tokenLogin) {
 		return (

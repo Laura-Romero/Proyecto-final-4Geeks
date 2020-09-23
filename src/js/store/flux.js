@@ -31,7 +31,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					class: "widget-icon fa fa-tasks"
 				}
 			],
-			widgetMirror: [{ array: [] }]
+			widgetMirror: []
 		},
 		actions: {
 			postLogin: async (inputUsername, inputPassword) => {
@@ -110,6 +110,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let response = await fetch("https://mirrorify.herokuapp.com/twitter");
 				let data = await response.json();
 				setStore({ tweets: data });
+			},
+
+			setWidgetArray: async widgetArrayItems => {
+				let widgetArray = [];
+				for (let item in widgetArrayItems) {
+					widgetArray.push(widgetArrayItems[item]["name"]);
+				}
+				setStore({ widgetMirror: widgetArray });
 			}
 
 			// Use getActions to call a function within a fuction
