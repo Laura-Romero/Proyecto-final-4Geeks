@@ -8,6 +8,7 @@ import { Widget } from "./widget";
 
 export const WidgetTable = () => {
 	const { store } = useContext(Context);
+
 	return (
 		<Fragment>
 			<div className="widget-table floating-table-effect col-10 offset-1 col-md-4 offset-md-0">
@@ -15,7 +16,6 @@ export const WidgetTable = () => {
 				{store.widgetInfo.map((item, index) => {
 					return <Widget key={index} widgetName={item.title} widgetClassName={item.class} />;
 				})}
-				{/* <Widget widgetClassName="widget-icon fa fa-twitter" widgetName="Twitter" /> */}
 			</div>
 		</Fragment>
 	);

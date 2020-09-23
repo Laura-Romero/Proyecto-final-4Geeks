@@ -22,7 +22,15 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
+
 			state.actions.loadWeather();
+
+			state.actions.getTweets();
+			const interval = setInterval(() => {
+				state.actions.getTweets();
+			}, 210000);
+			return () => clearInterval(interval);
+
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,

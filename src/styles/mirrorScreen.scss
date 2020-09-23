@@ -1,8 +1,7 @@
-body {
-    background-color: black;
-}
+
 
 .screen {
+  background-color: black;
   margin: auto;
   width: 100%;
   height: 100%;
@@ -11,20 +10,15 @@ body {
   flex-wrap: wrap;
 }
 
-.horizontal-box {
+
+.box {
+    // border: 1px solid white;
+    border-radius: 10px;
+    background-color: black;
     width: 33.33%;
-    height: 20%;
-    border: solid 1px rgba(255, 255, 255, 0.1);
-}
-
-.vertical-box {
-    width: 25%;
-    height: 60%;
-    border: solid 1px rgba(255, 255, 255, 0.1);
-}
-
-.main-vertical-box {
-    width: 50%;
-    height: 60%;
-    border: solid 1px rgba(255, 255, 255, 0.1);
+    height: 33.34%;
+    padding: 0.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

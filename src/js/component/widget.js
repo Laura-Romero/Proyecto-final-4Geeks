@@ -8,7 +8,14 @@ import "../../styles/userInterface.scss";
 export const Widget = props => {
 	return (
 		<Fragment>
-			<div className="float-effect widget-properties col-10 offset-1 col-md-10 offset-md-2 d-flex pop">
+			<div
+				draggable
+				onDrag={e => {
+					e.preventDefault();
+					e.stopPropagation();
+					console.log("dragging");
+				}}
+				className="float-effect widget-properties col-10 offset-1 col-md-10 offset-md-2 d-flex pop">
 				<div className="widget--logo col-2 offset-1 mr-1 d-flex justify-content-center">
 					<i className={props.widgetClassName} aria-hidden="true" />
 				</div>
