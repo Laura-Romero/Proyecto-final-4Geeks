@@ -3,6 +3,14 @@ import { Context } from "../store/appContext";
 import { Link, Redirect } from "react-router-dom";
 export const Logger = () => {
 	const { actions, store } = useContext(Context);
+	const query_string = new URLSearchParams(window.location.search);
+	const token = query_string.get("token");
+
+	if (token) {
+		actions.redirectLogin(token);
+		return <Redirect to="/" />;
+	}
+
 	const [inputFields, setInputFields] = useState({ username: "", password: "" });
 
 	let validation = input => {
@@ -46,7 +54,7 @@ export const Logger = () => {
 					<div className="row d-flex justify-content-between mx-1">
 						<label className="">Username:</label>
 						<Link to="/registration">
-							<a className="">Not registereged yet?</a>
+							<a className="">Not registered yet?</a>
 						</Link>
 					</div>
 
@@ -71,7 +79,7 @@ export const Logger = () => {
 
 					<div className="row mx-1">
 						<input
-							type="text"
+							type="password"
 							className={
 								inputFields.password == "Error" ? "form-control border border-danger" : "form-control"
 							}
@@ -98,19 +106,16 @@ export const Logger = () => {
 								e.preventDefault();
 								validation(inputFields);
 							}}>
-							SIGN IN
+							<span className="sing-In">Sign In</span>
 						</button>
 					</div>
 
 					<div className="row mx-1 pb-3">
-						<button
-							className=" btn btn-block mt-2 mb-4 py-0 button-Google"
-							onClick={e => {
-								e.preventDefault();
-								actions.loginOautUser();
-							}}>
-							Sign in with Google
-						</button>
+						<a
+							href="https://3000-a646f059-ee41-457c-be7c-66697288378c.ws-eu01.gitpod.io/login"
+							className=" btn btn-block mt-2 mb-4 py-0 button-Google d-flex justify-content-around">
+							<span className="sing-In">Sign in with Google</span>
+						</a>
 					</div>
 				</form>
 			</div>
