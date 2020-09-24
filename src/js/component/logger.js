@@ -3,6 +3,14 @@ import { Context } from "../store/appContext";
 import { Link, Redirect } from "react-router-dom";
 export const Logger = () => {
 	const { actions, store } = useContext(Context);
+	const query_string = new URLSearchParams(window.location.search);
+	const token = query_string.get("token");
+
+	if (token) {
+		actions.redirectLogin(token);
+		return <Redirect to="/" />;
+	}
+
 	const [inputFields, setInputFields] = useState({ username: "", password: "" });
 
 	let validation = input => {
@@ -44,12 +52,13 @@ export const Logger = () => {
 							</h3>
 						</div>
 
-						<div className="row d-flex justify-content-between mx-1">
-							<label className="">Username:</label>
-							<Link to="/registration">
-								<a className="">Not registereged yet?</a>
-							</Link>
-						</div>
+					<div className="row d-flex justify-content-between mx-1">
+						<label className="">Username:</label>
+						<Link to="/registration">
+							<a className="">Not registered yet?</a>
+						</Link>
+					</div>
+
 
 						<div className="row mx-1">
 							<input
@@ -72,22 +81,22 @@ export const Logger = () => {
 							<label>Password:</label>
 						</div>
 
-						<div className="row mx-1">
-							<input
-								type="text"
-								className={
-									inputFields.password == "Error"
-										? "form-control border border-danger"
-										: "form-control"
-								}
-								onChange={e => {
-									let val = e.target.value;
-									setInputFields(inputFields => {
-										return { ...inputFields, password: val };
-									});
-								}}
-							/>
-						</div>
+
+					<div className="row mx-1">
+						<input
+							type="password"
+							className={
+								inputFields.password == "Error" ? "form-control border border-danger" : "form-control"
+							}
+							onChange={e => {
+								let val = e.target.value;
+								setInputFields(inputFields => {
+									return { ...inputFields, password: val };
+								});
+							}}
+						/>
+					</div>
+
 
 						<div className="row mx-1 pt-3">
 							<div>
@@ -95,6 +104,7 @@ export const Logger = () => {
 								<label className="ml-2">Remember:</label>
 							</div>
 						</div>
+
 
 						<div className="row mx-1 pb-3">
 							<button
@@ -119,6 +129,7 @@ export const Logger = () => {
 						</div>
 					</form>
 				</div>
+
 			</div>
 		);
 	}

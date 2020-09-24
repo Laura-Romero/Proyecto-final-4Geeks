@@ -128,6 +128,7 @@ export const Register = () => {
 							/>
 						</div>
 
+
 						<div className="row d-flex justify-content-between pt-3">
 							<div className="col ml-2">
 								<label>Country:</label>
@@ -176,6 +177,7 @@ export const Register = () => {
 						</div>
 					</form>
 				</div>
+
 			</div>
 		);
 	}
