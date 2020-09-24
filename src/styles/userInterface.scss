@@ -1,3 +1,59 @@
+.context {
+    display: flex;
+    width: 100%;
+    align-items: start;
+    justify-content: space-around;
+}
+
+ .context .column {
+    width: 40%;
+    
+ }
+ .context .column-widget {
+    width: 40%;
+    
+ }
+
+.droppable-col {
+    width: 100%;   
+    background-color: grey;
+    padding: 2rem 2rem 0 2rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    margin-bottom: 2rem;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.mirror-table{
+    background: white;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    padding: 0;
+
+}
+.mirrorcito {
+    color: white;
+    width: 88%;
+    height: 30rem;
+    margin: auto;
+    background-color: black;
+    border-radius: 20px;
+    box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);
+}
+.screenExample{
+    margin: auto;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
 body {
     background-color:transparent;
     font-family: 'Roboto', sans-serif;
@@ -9,18 +65,18 @@ body {
 }
 .widget-table{
     background: transparent;
-    margin: auto;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    padding: 0.35rem;
+    padding: 0.75rem;
 
 }
 .widget-title{
+    font-size: 2.5rem;
     margin: 1rem 0 0 1.5rem;
 }
 .widget-instructions{
-    margin: 1rem 0 1rem 1.5rem;
-    font-size: 1rem;
+    margin: 1rem 0.8rem 1rem 1.5rem;
+    font-size: 0.8rem;
     color: rgb(121, 121, 121)
 }
 
@@ -36,8 +92,8 @@ body {
 
 
 .widget-properties{
-    background-color:  transparent;
-    margin: 2rem;
+    background-color:  white;
+    margin: 0.2rem 0.2rem 0.6rem 0.2rem;
     padding: 0.6rem;
     cursor: grab;
 }
@@ -51,11 +107,11 @@ body {
 
 .widget-text {
     font-size: 1.3rem;
-    margin: auto;
-    padding: 0.3rem 0 0 0;  
+    margin: auto 0.3rem;
+    padding: 0;  
 }
 .widget-icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin: 0 10px 0 0;
 }
 .pop{
@@ -64,7 +120,7 @@ body {
 
 
 .pop:hover{
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 
