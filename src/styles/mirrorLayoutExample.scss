@@ -1,10 +1,17 @@
 .mirror-layout-box{
-    background: black;
+    // background: black;
     border-radius: 20px;
     margin: auto;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    box-shadow:  9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);  
+    box-shadow:  9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);
+    background-image: url("../img/Tw.png");
+    background-position: center;
+    background-size: cover;
+}  
+
+.img-example {
+    width: 1rem;
 }
 .horizontal-position-box {
     border: solid 1px rgba(255, 255, 255, 0.205);

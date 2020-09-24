@@ -1,0 +1,12 @@
+.cardWeather{
+    width: 30rem;
+    color: white;
+    background: black;
+    margin-left: 3rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+.cardWeather img{
+     -webkit-filter: invert(100%);
+    filter: invert(100%);
+}

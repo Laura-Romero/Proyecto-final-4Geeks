@@ -19,6 +19,7 @@ import { MirrorScreen } from "./views/mirrorScreen";
 import { Logger } from "./component/logger";
 import { Register } from "./component/register";
 import { Registration } from "./views/registration";
+import { Weather } from "./component/weather";
 
 //create your first component
 const Layout = () => {

@@ -22,6 +22,8 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
+			state.actions.loadWeather();
+
 			state.actions.getTweets();
 			const interval = setInterval(() => {
 				state.actions.getTweets();

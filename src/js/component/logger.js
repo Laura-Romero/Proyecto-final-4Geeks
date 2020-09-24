@@ -43,13 +43,14 @@ export const Logger = () => {
 		return <Redirect to="/userInterface" />;
 	} else {
 		return (
-			<div className="row d-flex justify-content-center">
-				<form className="col-10 col-lg-4 d-flex flex-column border rounded logger" action="" method="post">
-					<div className="row title d-flex justify-content-center py-3">
-						<h3>
-							<strong>Sign In</strong>
-						</h3>
-					</div>
+			<div className="container-fluid ">
+				<div className="row d-flex justify-content-center">
+					<form className="col-10 col-lg-4 d-flex flex-column border rounded logger" action="" method="post">
+						<div className="row title d-flex justify-content-center py-3">
+							<h3>
+								<strong>Sign In</strong>
+							</h3>
+						</div>
 
 					<div className="row d-flex justify-content-between mx-1">
 						<label className="">Username:</label>
@@ -58,24 +59,28 @@ export const Logger = () => {
 						</Link>
 					</div>
 
-					<div className="row mx-1">
-						<input
-							type="text"
-							className={
-								inputFields.username == "Error" ? "form-control border border-danger" : "form-control"
-							}
-							onChange={e => {
-								let val = e.target.value;
-								setInputFields(inputFields => {
-									return { ...inputFields, username: val };
-								});
-							}}
-						/>
-					</div>
 
-					<div className="row mx-1 pt-3">
-						<label>Password:</label>
-					</div>
+						<div className="row mx-1">
+							<input
+								type="text"
+								className={
+									inputFields.username == "Error"
+										? "form-control border border-danger"
+										: "form-control"
+								}
+								onChange={e => {
+									let val = e.target.value;
+									setInputFields(inputFields => {
+										return { ...inputFields, username: val };
+									});
+								}}
+							/>
+						</div>
+
+						<div className="row mx-1 pt-3">
+							<label>Password:</label>
+						</div>
+
 
 					<div className="row mx-1">
 						<input
@@ -92,32 +97,39 @@ export const Logger = () => {
 						/>
 					</div>
 
-					<div className="row mx-1 pt-3">
-						<div>
-							<input type="checkbox" />
-							<label className="ml-2">Remember:</label>
+
+						<div className="row mx-1 pt-3">
+							<div>
+								<input type="checkbox" />
+								<label className="ml-2">Remember:</label>
+							</div>
 						</div>
-					</div>
 
-					<div className="row mx-1 pb-3">
-						<button
-							className=" btn btn-block mt-2 mb-2 py-0 button-User"
-							onClick={e => {
-								e.preventDefault();
-								validation(inputFields);
-							}}>
-							<span className="sing-In">Sign In</span>
-						</button>
-					</div>
 
-					<div className="row mx-1 pb-3">
-						<a
-							href="https://3000-a646f059-ee41-457c-be7c-66697288378c.ws-eu01.gitpod.io/login"
-							className=" btn btn-block mt-2 mb-4 py-0 button-Google d-flex justify-content-around">
-							<span className="sing-In">Sign in with Google</span>
-						</a>
-					</div>
-				</form>
+						<div className="row mx-1 pb-3">
+							<button
+								className=" btn btn-block mt-2 mb-2 py-0 button-User"
+								onClick={e => {
+									e.preventDefault();
+									validation(inputFields);
+								}}>
+								SIGN IN
+							</button>
+						</div>
+
+						<div className="row mx-1 pb-3">
+							<button
+								className=" btn btn-block mt-2 mb-4 py-0 button-Google"
+								onClick={e => {
+									e.preventDefault();
+									actions.loginOautUser();
+								}}>
+								Sign in with Google
+							</button>
+						</div>
+					</form>
+				</div>
+
 			</div>
 		);
 	}

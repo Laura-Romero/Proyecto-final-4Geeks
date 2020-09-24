@@ -22,3 +22,29 @@
     justify-content: center;
     align-items: center;
 }
+ .box-twitter {
+    background-image: url("../img/Tw.png");
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    background-color: black;
+    width: 33.33%;
+    height: 33.34%;
+    padding: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+  .box-weather {
+    background-image: url("../img/w.png");
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    background-color: black;
+    width: 33.33%;
+    height: 33.34%;
+    padding: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }

@@ -6,11 +6,9 @@ import "../../styles/navbarUser.scss";
 export const NavbarUser = props => {
 	return (
 		<div className="category-navbar navbar navbar--user user-navbar--background-color d-flex">
-			<i className="fa fa-television nav-item ml-4" aria-hidden="true" />
-			<span className="m-0 nav-item user-navbar__button d-flex">
-				{props.navbarUButton}
+			<Link to="/" className="m-0 nav-item user-navbar__button d-flex">
 				<i className="fa fa-sign-out ml-1 p-1" aria-hidden="true" />
-			</span>
+			</Link>
 		</div>
 	);
 };
