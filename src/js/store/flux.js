@@ -34,9 +34,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 			widgetMirror: []
 		},
 		actions: {
+			loadWeather: city => {
+				const weatherURL = `https://api.openweathermap.org/data/2.5/find?q=madrid,ES&appid=4cd5539f8e0617ff4cc0a570dd24742a&lang=es&units=metric&cnt=16`;
+				fetch(weatherURL)
+					.then(res => res.json())
+					.then(data => {
+						console.log(data);
+						const dailyData = data.list[0];
+
+						setStore({
+							day: dailyData
+						});
+					});
+			},
 			postLogin: async (inputUsername, inputPassword) => {
 				let userToken = await fetch(
-					"https://3000-e62ef84a-80a4-4902-ab18-ce113b36dca9.ws-eu01.gitpod.io/login",
+					"https://mirrorify.herokuapp.com/login",
 
 					{
 						method: "POST",
@@ -50,7 +63,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				userToken = await userToken.json();
 
 				setStore({ tokenLogin: userToken.token });
-				let user = await fetch("https://3000-e62ef84a-80a4-4902-ab18-ce113b36dca9.ws-eu01.gitpod.io/user", {
+				let user = await fetch("https://mirrorify.herokuapp.com/user", {
 					headers: { "Content-Type": "application/json", "X-Access-Point": userToken.token }
 				});
 
@@ -58,7 +71,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ user: user });
 			},
 			loginOautUser: async () => {
-				let response = await fetch("https://3000-e62ef84a-80a4-4902-ab18-ce113b36dca9.ws-eu01.gitpod.io/login");
+				let response = await fetch("https://mirrorify.herokuapp.com/login");
 				response = await userOaut.json();
 				console.log(response);
 			},
@@ -76,32 +89,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 					inputCountry,
 					inputCity != "")
 				) {
-					let register = await fetch(
-						"https://3000-e62ef84a-80a4-4902-ab18-ce113b36dca9.ws-eu01.gitpod.io/user",
-						{
-							method: "POST",
-							headers: { "Content-Type": "application/json" },
-							body: JSON.stringify({
-								fullname: inputFullName,
-								username: inputUsername,
-								password: inputPassw,
-								email: inputMail,
-								country: inputCountry,
-								city: inputCity,
-								is_active: true
-							})
-						}
-					);
+					let register = await fetch("https://mirrorify.herokuapp.com/user", {
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify({
+							fullname: inputFullName,
+							username: inputUsername,
+							password: inputPassw,
+							email: inputMail,
+							country: inputCountry,
+							city: inputCity,
+							is_active: true
+						})
+					});
 					register = await register.json();
 					setStore({ register: register });
-					console.log(register, "ostia tu");
 				} else {
 					alert("comprueba los datos");
 				}
-			},
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
 			},
 
 			getTweets: async () => {

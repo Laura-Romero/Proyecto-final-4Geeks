@@ -85,6 +85,7 @@ export const UserInterface = () => {
 	return (
 		<>
 			<NavbarUser />
+
 			<div className="container-fluid context">
 				<DragDropContext onDragEnd={handleDragEnd}>
 					{_.map(state, (data, key) => {

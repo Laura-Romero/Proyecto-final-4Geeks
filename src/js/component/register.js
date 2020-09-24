@@ -63,7 +63,7 @@ export const Register = () => {
 		}
 	};
 	if (store.register) {
-		return <Redirect to="/mirror" />;
+		return <Redirect to="/" />;
 	} else {
 		return (
 			<div className="container-fluid cont">
